@@ -17,19 +17,15 @@ function getArticleTem(){
     return <div>这是三图文章</div>
   }
 }
+
 function App() {
   const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div className="card">
-        
-        {/*调用函数渲染不同模板*/}
-        {getArticleTem()}
-        
-      </div>
-    </>
-  )
-}
+  const clickHandler = (name) => {
+        console.log('button按钮被点击了',name)
+      }
+      return (
+        <button onClick = {() => clickHandler('vue')}>点击我</button>
+      )
+    }
 
 export default App

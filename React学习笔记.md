@@ -42,3 +42,40 @@ map循环哪个结构，就return哪个结构，加上独一无二的key
 # 五、React中的事件绑定
 react基础事件绑定
 语法：on+事件名称={事件处理程序}，整体上遵循驼峰命名法
+      const clickHandler = () => {
+
+        console.log('button按钮被点击了')
+
+      }
+
+      return (
+
+        <button onClick = {clickHandler}>点击我</button>
+
+      )
+
+使用对象事件参数e
+`const clickHandler = (e) => {
+
+        console.log('button按钮被点击了',e)
+
+      }
+
+      return (
+
+        <button onClick = {clickHandler}>点击我</button>
+
+      )
+  传递自定义参数
+  `const clickHandler = (name) => {
+
+        console.log('button按钮被点击了',name)
+
+      }
+
+      return (
+
+        <button onClick = {()=>clickHandler('vue')}>点击我</button>
+
+      )
+   注意：不能直接写函数调用，这里事件绑定需要一个函数引用
