@@ -25,3 +25,17 @@ map循环哪个结构，就return哪个结构，加上独一无二的key
 例如：
 `{isLogin && <span> this is span </span>}`
 `{isLogin ? <span>jack</span> : <span>loading...</span>}`
+# 四、JSX中实现复杂条件渲染
+解决方案：**自定义函数+if判断语句**
+`//定义文章类型`
+`const article = 3 //0 1 3,无图，单图，三图
+`//定义核心函数（根据文章类型返回不同的JSX模板）
+`function getArticleTem(){
+  `if(article === 0)
+   `` return <div>这是无图文章</div>
+  `}else if(article === 1){
+   `` return <div>这是单图文章</div>
+  `}else{
+   `` return <div>这是三图文章</div>
+ `` }
+`}`
