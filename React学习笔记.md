@@ -79,3 +79,99 @@ react基础事件绑定
 
       )
    注意：不能直接写函数调用，这里事件绑定需要一个函数引用
+   既要传递自定义参数，而且还要事件对象e
+   `const clickHandler = (name) => {
+
+        console.log('button按钮被点击了',name，e)
+
+      }
+
+      return (
+
+        <button onClick = {(e)=>clickHandler('vue'，e)}>点击我</button>
+
+      )
+# 六、React中的组件
+组件是什么？
+一个组件就是用户界面的一部分，它可以有自己的逻辑和外观，组件之间可以**互相嵌套**，也可以**复用**多次
+在React中，一个组件就是首字母大写的**函数**，内部存放了组件的逻辑和视图UI，渲染组件只需要把组件当**标签**书写即可
+`function Button(){
+
+  `//业务逻辑
+
+  `console.log('按钮被点击了')
+
+   `return <button>按钮</button>
+
+`}`
+# 七、useState基础使用
+useState是一个React Hook（函数），它允许我们向组件添加一个**状态变量**，从而控制影响组件的渲染结果
+本质：状态变量一旦发生变化组件的视图UI也会跟着变化（**数据驱动视图**）
+`function App() {
+
+  `//调用useState定义状态变量
+
+  `//count:状态变量
+
+  `//setCount:更新状态变量的函数
+
+  `const [count,setCount] = useState(0)
+
+  
+
+  `//点击事件回调
+
+  `const handleClick = () =>{
+
+    `setCount(count + 1)
+
+  `}
+
+      return (
+
+        <div className="App">
+
+          <button onClick={handleClick}>{count}</button>
+
+          </div>
+
+      )
+
+    }
+
+# 八、修改状态的规则
+1. 状态不可变：
+在React中，状态被认为是只读的，我们应该始终替换它而不是修改它，直接修改状态不能引发视图更新
+2. 修改对象状态：
+对于对象类型的状态变量，应该始终传给set方法一个**全新的对象**来进行修改
+`const[form,setForm] = useState({name:'jack'})
+
+  `const changeForm = ()=>{
+
+  
+
+    setForm({
+
+      ...form,
+
+      name:'john'
+
+    })
+
+  }
+
+  
+
+      return (
+
+        <div className="App">
+
+          <button onClick={changeForm}>修改form{form.name}</button>
+
+          </div>
+
+      )`
+# 九、组件的样式处理
+React组件基础样式控制有两种方式
+1. 行内样式（不推荐）
+2. class类名控制
